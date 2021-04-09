@@ -139,53 +139,10 @@ void loop()
     
     scaleData(); // Scale data acquired from the INCL
     
-    // Print header
-    Serial.println("ADIS16209 Arduino Example Program");
-    Serial.println("October 2015 - Juan J Chong");
-    Serial.println(" ");
-    
-    //Print control registers to the serial port
-    Serial.println("Control Registers");
-    Serial.print("MSC_CTRL: ");
-    Serial.println((unsigned char)MSC,HEX);
-    Serial.print("SENS_AVG: ");
-    Serial.println((unsigned char)SENS,HEX);
-    Serial.print("SMPL_PRD: ");
-    Serial.println((unsigned char)SMPL,HEX);
-    Serial.print("PROD_ID: ");
-    Serial.println(PRODID);
-    Serial.print("STATUS: ");
-    Serial.println(STATUSREG,HEX);
-    Serial.println(" ");
-    Serial.println("Data Registers");
-    
     //Print scaled accel data
-    Serial.print("XACCL: ");
-    Serial.println(AXS);
-    Serial.print("YACCL: ");
-    Serial.println(AYS);
-    Serial.println(" ");
-
-    //Print scaled accel data
-    Serial.print("XINCL: ");
-    Serial.println(INCXS);
-    Serial.print("YINCL: ");
-    Serial.println(INCYS);
-    Serial.print("ROT: ");
-    Serial.println(ROTS);
-    Serial.println(" ");
-   
-    //Print scaled temp data
-    Serial.print("TEMP: ");
-    Serial.println(TEMPS);
-    Serial.print("Supply: ");
-    Serial.println(SUPPLYS);
+    Serial.write(INCXS);
    
     delay(150); // Give the user time to read the data
-    
-    //Clear the serial terminal and reset cursor
-    //Only works on supported serial terminal programs (PuTTY)
-    Serial.print("\033[2J");
-    Serial.print("\033[H");
+
   }
 }
